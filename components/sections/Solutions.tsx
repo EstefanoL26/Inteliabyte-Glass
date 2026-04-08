@@ -81,27 +81,12 @@ export default function Solutions() {
       id="soluciones"
       className="py-28 bg-[var(--paper-2)] relative overflow-hidden"
     >
-      <div
-        className="absolute left-0 top-10 select-none pointer-events-none leading-none"
-        style={{
-          fontFamily: "var(--font-display)",
-          fontWeight: 800,
-          fontSize: "clamp(80px, 14vw, 180px)",
-          color: "rgba(24, 36, 82, 0.06)",
-          transform: "translateX(-22%)",
-          letterSpacing: "-0.08em",
-          zIndex: 0,
-        }}
-      >
-        05
-      </div>
-
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="relative z-10 mb-16 max-w-2xl ml-8 md:ml-20"
+          className="mb-16 max-w-2xl"
         >
           <div className="section-num mb-5">Soluciones empresariales</div>
           <h2 className="headline-lg mb-5">
