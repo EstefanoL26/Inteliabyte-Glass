@@ -1,7 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap, ArrowRight, Phone } from "lucide-react";
+import { Menu, X, ArrowRight, Phone } from "lucide-react";
 
 const nav = [
   { label: "Servicios",  href: "#servicios" },
@@ -52,15 +53,16 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
 
           {/* Logo */}
-          <a href="#inicio" className="flex items-center gap-2.5 group flex-shrink-0">
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg, var(--blue), var(--violet-d))", boxShadow: "0 4px 16px rgba(100,80,200,0.35), inset 0 1px 0 rgba(255,255,255,0.25)" }}>
-              <Zap className="w-4.5 h-4.5 text-white" style={{ width: 18, height: 18 }} />
-            </div>
-            <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 18, letterSpacing: "-0.01em", color: "var(--text)" }}>
-              intelia<span style={{ color: "var(--violet-d)" }}>byte</span>
-            </span>
-          </a>
+          <a href="#inicio" className="flex items-center flex-shrink-0">
+  <Image
+    src="/logo-inteliabyte.png"
+    alt="Inteliabyte"
+    width={260}
+    height={72}
+    priority
+    className="h-10 w-auto lg:h-12"
+  />
+</a>
 
           {/* Nav links */}
           <nav className="hidden lg:flex items-center gap-0.5">
@@ -99,19 +101,20 @@ export default function Navbar() {
       {/* Mobile drawer */}
       <AnimatePresence>
         {open && (
-          <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.2 }}
-            style={{ background: "rgba(255,255,255,0.60)", backdropFilter: "blur(24px) saturate(1.9)", WebkitBackdropFilter: "blur(24px) saturate(1.9)", borderBottom: "1px solid rgba(255,255,255,0.70)", boxShadow: "0 8px 32px rgba(100,80,200,0.15)" }}
-            className="absolute top-full left-0 right-0 p-5">
-            <nav className="flex flex-col gap-1 mb-5">
-              {nav.map((l) => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)}
-                  className="py-2.5 px-4 text-[14px] font-medium rounded-xl transition-all"
-                  style={{ fontFamily: "var(--font-body)", color: "var(--text-2)" }}>
-                  {l.label}
-                </a>
-              ))}
-            </nav>
-            <div className="flex flex-col gap-2.5">
+<motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.2 }}
+  style={{ background: "rgba(255,255,255,0.60)", backdropFilter: "blur(24px) saturate(1.9)", WebkitBackdropFilter: "blur(24px) saturate(1.9)", borderBottom: "1px solid rgba(255,255,255,0.70)", boxShadow: "0 8px 32px rgba(100,80,200,0.15)" }}
+  className="absolute top-full left-0 right-0 p-5">
+  <div className="mb-4">
+    <Image
+      src="/logo-inteliabyte.png"
+      alt="Inteliabyte"
+      width={220}
+      height={60}
+      className="h-10 w-auto"
+    />
+  </div>
+
+  <nav className="flex flex-col gap-1 mb-5">
               <a href="#demo" className="btn-primary justify-center py-3.5 text-[14px]">Demo Gratis</a>
               <a href="#contacto" className="btn-glass justify-center py-3.5 text-[14px]">Hablar con asesor</a>
             </div>
